@@ -1,0 +1,306 @@
+/* ──────────────────────────────────────────────────────────────
+   DEMO 4 skin. Neutral warm base taken from the hero video's studio
+   backdrop, off-black ink and ONE accent (rosewood #8e4b52).
+   Radius system: 28px surfaces · 16px controls · full pills.
+   Re-declares the design tokens so shared components (booking,
+   user panel) re-skin automatically inside .theme-nuve.
+   ────────────────────────────────────────────────────────────── */
+.theme-nuve {
+  --color-wine: #1a1617;
+  --color-wine-deep: #1f1a1b;
+  --color-wine-soft: #2b2626;
+  --color-champagne: #8e4b52; /* the one accent */
+  --color-champagne-light: #f4f1ef;
+  --color-gold-ink: #8e4b52;
+  --color-ivory: #fbfaf9;
+  --color-cream: #f4f1ef;
+  --color-nude: #f2eeec;
+  --color-line: #e7e3e2;
+  --color-espresso: #1a1617;
+  --color-charcoal: #4d4746;
+  --color-muted: #77706f;
+  --color-faint: #9a9392;
+  --color-line-strong: #d8d2d0;
+  --color-tint: #ebe5e3;
+  --color-surface: #fffdfc;
+  --color-accent-deep: #6e363d;
+  --color-stage: #ebe7ea; /* hero video backdrop */
+  /* type pairing: Markazi Text (Naskh display) for headings · Vazirmatn for body */
+  --font-display: var(--font-markazi), var(--font-vazir), serif;
+  --font-latin: "Inter", system-ui, sans-serif;
+
+  font-family: var(--font-vazir), system-ui, sans-serif;
+  color: var(--color-espresso);
+  background: var(--color-ivory);
+  font-variant-numeric: tabular-nums;
+}
+
+@layer components {
+  .theme-nuve .font-display,
+  .theme-nuve .t-hero,
+  .theme-nuve .t-display,
+  .theme-nuve .t-h2,
+  .theme-nuve :is(h1, h2),
+  .theme-nuve .nuve-display {
+    font-family: var(--font-display);
+    font-weight: 500;
+    letter-spacing: 0;
+    line-height: 1.3;
+  }
+  .theme-nuve .t-display {
+    font-size: clamp(32px, 5.6vw, 60px);
+    line-height: 1.3;
+  }
+  .theme-nuve .t-h2 {
+    font-size: clamp(26px, 3.4vw, 42px);
+    line-height: 1.4;
+  }
+  .theme-nuve .t-eyebrow {
+    font-family: "Inter", var(--font-vazir);
+    letter-spacing: 0.08em;
+    font-size: 11px;
+  }
+  .theme-nuve .t-num {
+    font-family: "Inter", var(--font-vazir);
+    font-weight: 400;
+  }
+  .theme-nuve .btn {
+    border-radius: 999px;
+    font-weight: 500;
+    min-height: 46px;
+  }
+  .theme-nuve .btn-ghost {
+    border-color: color-mix(in srgb, currentColor 30%, transparent);
+  }
+  .theme-nuve .field-box,
+  .theme-nuve select.field {
+    border-radius: 14px;
+  }
+  .theme-nuve .fig {
+    border-radius: 28px;
+  }
+  .theme-nuve .check {
+    border-radius: 6px;
+  }
+  .theme-nuve .demo-tag {
+    border-radius: 999px;
+  }
+}
+
+.nuve-latin {
+  font-family: "Inter", system-ui, sans-serif;
+  letter-spacing: -0.03em;
+  unicode-bidi: plaintext;
+}
+/* quiet tinted surface (no gradients) */
+.nuve-lilac {
+  background: var(--color-cream);
+}
+.nuve-btn-lilac {
+  background: transparent;
+  color: var(--color-espresso);
+  border: 1px solid var(--color-line-strong);
+}
+.nuve-btn-lilac:hover {
+  background: var(--color-cream);
+}
+
+/* ── Scan boxes ─────────────────────────────────────────────── */
+.scan-box {
+  position: absolute;
+  aspect-ratio: 1;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+.scan-box svg rect {
+  stroke-dasharray: 400;
+  stroke-dashoffset: 400;
+}
+.scan-box .scan-dot,
+.scan-box .scan-label,
+.scan-box .scan-mesh {
+  opacity: 0;
+}
+.scan-on .scan-box .scan-mesh {
+  animation: scan-mesh 1.4s ease-out both;
+  animation-delay: var(--d);
+}
+.scan-on .scan-box svg rect {
+  animation: scan-draw 0.9s cubic-bezier(0.6, 0, 0.2, 1) forwards;
+  animation-delay: calc(var(--d) + 0.5s);
+}
+.scan-on .scan-box .scan-dot {
+  animation: scan-fade 0.3s ease-out forwards;
+  animation-delay: calc(var(--d) + 1.25s);
+}
+.scan-on .scan-box .scan-label {
+  animation: scan-label 0.6s ease-out forwards;
+  animation-delay: calc(var(--d) + 1.4s);
+}
+@keyframes scan-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes scan-fade {
+  to {
+    opacity: 1;
+  }
+}
+@keyframes scan-label {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+    filter: blur(3px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+}
+@keyframes scan-mesh {
+  0% {
+    opacity: 0;
+    transform: scale(0.6);
+  }
+  40% {
+    opacity: 0.9;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.15);
+  }
+}
+
+/* horizontal scan line sweeping the face */
+.scan-line {
+  position: absolute;
+  inset-inline: 8%;
+  height: 2px;
+  top: 0;
+  opacity: 0;
+  background: linear-gradient(90deg, transparent, rgb(255 255 255 / 0.95), transparent);
+  box-shadow: 0 0 18px 4px rgb(255 255 255 / 0.5);
+}
+.scan-on .scan-line {
+  animation: scan-sweep 2.6s cubic-bezier(0.45, 0, 0.2, 1) 0.2s both;
+}
+@keyframes scan-sweep {
+  0% {
+    top: 12%;
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    top: 82%;
+    opacity: 0;
+  }
+}
+
+/* headline words blur in */
+.blur-word {
+  display: inline-block;
+  animation: blur-in 1s cubic-bezier(0.2, 0.7, 0.1, 1) both;
+  animation-delay: var(--d, 0ms);
+}
+@keyframes blur-in {
+  from {
+    opacity: 0;
+    filter: blur(12px);
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    filter: none;
+    transform: none;
+  }
+}
+
+
+
+@media (prefers-reduced-motion: reduce) {
+  .scan-box svg rect {
+    stroke-dashoffset: 0;
+  }
+  .scan-box .scan-dot,
+  .scan-box .scan-label {
+    opacity: 1;
+  }
+  .scan-on .scan-box *,
+  .scan-on .scan-line,
+  .blur-word {
+    animation: none !important;
+  }
+}
+
+/* ── Page upgrades (round 2) ─────────────────────────────────── */
+.nuve-glass {
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+}
+.nuve-card img {
+  transition: transform 1.2s var(--ease-lux);
+}
+.nuve-card:hover img {
+  transform: scale(1.04);
+}
+.nuve-pill-img {
+  display: inline-block;
+  width: 1.9em;
+  height: 1.05em;
+  border-radius: 999px;
+  vertical-align: -0.12em;
+  background-size: cover;
+  background-position: center;
+  margin-inline: 0.12em;
+  box-shadow: inset 0 0 0 2px var(--color-surface);
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+  .nuve-card:hover img {
+    transform: none;
+  }
+}
+
+/* Hero stage: the band takes the video's studio colour and the clip's
+   edges dissolve into it, so video and slider read as one surface. */
+.nuve-stage {
+  background: var(--color-stage);
+}
+.stage-fade {
+  -webkit-mask-image: linear-gradient(to right, transparent 0, #000 14%, #000 86%, transparent 100%),
+    linear-gradient(to bottom, transparent 0, #000 6%, #000 78%, transparent 100%);
+  -webkit-mask-composite: source-in;
+  mask-image: linear-gradient(to right, transparent 0, #000 14%, #000 86%, transparent 100%),
+    linear-gradient(to bottom, transparent 0, #000 6%, #000 78%, transparent 100%);
+  mask-composite: intersect;
+}
+
+/* One orchestrated entrance only (the hero). Everything below the fold is
+   simply there — no scroll-triggered reveals in this demo. */
+.js .theme-nuve [data-reveal],
+.js .theme-nuve [data-reveal="image"] > .fig-clip {
+  opacity: 1;
+  transform: none;
+  clip-path: none;
+  transition: none;
+}
+.js .theme-nuve [data-reveal="image"] img {
+  transform: none;
+  transition: transform 1.2s var(--ease-lux);
+}
+.js .theme-nuve .nuve-card:hover [data-reveal="image"] img {
+  transform: scale(1.04);
+}
+@media (prefers-reduced-motion: reduce) {
+  .js .theme-nuve .nuve-card:hover [data-reveal="image"] img {
+    transform: none;
+  }
+}

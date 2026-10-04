@@ -1,0 +1,128 @@
+/* ──────────────────────────────────────────────────────────────
+   DEMO 2 — "Beauty Center" skin.
+   Tailwind v4 utilities read CSS variables, so re-declaring the
+   tokens here re-skins every shared component (booking, admin)
+   rendered inside .theme-rose.
+   ────────────────────────────────────────────────────────────── */
+.theme-rose {
+  --color-wine: #1c1717; /* black accent — pills, active states */
+  --color-wine-deep: #6f4541; /* mauve */
+  --color-wine-soft: #3b3130;
+  --color-champagne: #d6a097;
+  --color-champagne-light: #f6ddd7;
+  --color-gold-ink: #8f544c;
+  --color-ivory: #ffffff;
+  --color-cream: #f8efec;
+  --color-nude: #f1ddd8;
+  --color-line: #efe4e0;
+  --color-espresso: #1c1717;
+  --color-charcoal: #5a5250;
+  --color-muted: #847a77;
+  --color-rose: #b77c73;
+  --color-blush: #f6e6e2;
+  --font-display: var(--font-vazir), system-ui, sans-serif;
+  --font-latin: var(--font-vazir), system-ui, sans-serif;
+
+  font-family: var(--font-vazir), system-ui, sans-serif;
+  font-weight: 400;
+  color: var(--color-espresso);
+  background: var(--color-cream);
+}
+
+.theme-rose :focus-visible {
+  outline-color: var(--color-rose);
+}
+
+@layer components {
+  .theme-rose .font-display,
+  .theme-rose .t-hero,
+  .theme-rose .t-display,
+  .theme-rose .t-h2,
+  .theme-rose .t-h3 {
+    font-family: var(--font-vazir);
+    font-weight: 400;
+    letter-spacing: -0.01em;
+  }
+  .theme-rose .t-display {
+    font-size: clamp(32px, 6vw, 64px);
+    line-height: 1.35;
+  }
+  .theme-rose .t-h2 {
+    font-size: clamp(26px, 3.6vw, 44px);
+    line-height: 1.4;
+  }
+  .theme-rose .t-h3 {
+    font-size: clamp(20px, 2.2vw, 28px);
+    line-height: 1.5;
+  }
+  .theme-rose .t-eyebrow {
+    font-family: var(--font-vazir);
+    letter-spacing: 0.12em;
+    font-weight: 500;
+    font-size: 11px;
+  }
+  .theme-rose .t-latin-italic {
+    font-style: normal;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+  }
+  .theme-rose .t-num {
+    font-family: var(--font-vazir);
+    font-weight: 300;
+  }
+  .theme-rose .btn {
+    border-radius: 999px;
+    font-weight: 500;
+  }
+  .theme-rose .btn-ghost {
+    border-color: color-mix(in srgb, currentColor 35%, transparent);
+  }
+  .theme-rose .field-box,
+  .theme-rose select.field {
+    border-radius: 14px;
+  }
+  .theme-rose .fig {
+    border-radius: 20px;
+  }
+  .theme-rose .check {
+    border-radius: 7px;
+  }
+  .theme-rose .demo-tag {
+    border-radius: 999px;
+  }
+}
+
+/* glass surfaces used by the hero cards */
+.glass {
+  background: color-mix(in srgb, #ffffff 16%, transparent);
+  border: 1px solid color-mix(in srgb, #ffffff 30%, transparent);
+  backdrop-filter: blur(14px) saturate(1.1);
+  -webkit-backdrop-filter: blur(14px) saturate(1.1);
+}
+.glass-dark {
+  background: color-mix(in srgb, #2a1715 22%, transparent);
+  border: 1px solid color-mix(in srgb, #ffffff 22%, transparent);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+@keyframes spin-slow {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.spin-slow {
+  animation: spin-slow 28s linear infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .spin-slow {
+    animation: none;
+  }
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}

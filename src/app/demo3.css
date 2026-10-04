@@ -1,0 +1,105 @@
+/* ──────────────────────────────────────────────────────────────
+   DEMO 3 skin: crumpled paper, espresso ink, ONE accent (tan).
+   Type: Reem Kufi (Persian display) · Vazirmatn (body) ·
+   Bodoni Moda, always upright, for Latin accents.
+   Radius: arches for imagery · 28px surfaces · 16px controls · pills.
+   Re-declares the design tokens so shared components re-skin
+   automatically inside .theme-nue.
+   ────────────────────────────────────────────────────────────── */
+.theme-nue {
+  --color-wine: #2b201d; /* espresso — pills, active states */
+  --color-wine-deep: #2b201d;
+  --color-wine-soft: #4a3a35;
+  --color-champagne: #a27b5c; /* the one accent: tan */
+  --color-champagne-light: #e7d6c6;
+  --color-gold-ink: #8a6448; /* tan dark enough for small text on paper */
+  --color-ivory: #f5f3f0;
+  --color-cream: #e9e5e0;
+  --color-nude: #e3ddd6;
+  --color-line: #d9d2ca;
+  --color-espresso: #2b201d;
+  --color-charcoal: #5b504b;
+  --color-muted: #776a63;
+  --color-faint: #8f847d;
+  --color-line-strong: #c5bab0;
+  --color-tint: #e7d6c6;
+  --color-surface: #fbfaf8;
+  --color-accent-deep: #8a6448;
+  --color-tan-light: #c9a27f; /* tan on the espresso bands */
+  --color-on-dark: #f1ede8;
+  --font-display: var(--font-reem), var(--font-vazir), sans-serif;
+  --font-latin: "Bodoni Moda", "Times New Roman", serif;
+
+  color: var(--color-espresso);
+  background: #eceae7 url("/images/d3c/paper.jpg") repeat;
+  background-size: 640px;
+  font-variant-numeric: tabular-nums;
+}
+
+@layer components {
+  .theme-nue :is(h1, h2),
+  .theme-nue .nue-display {
+    font-family: var(--font-display);
+    font-weight: 500;
+    letter-spacing: 0;
+  }
+  .theme-nue .t-eyebrow {
+    letter-spacing: 0.18em;
+    font-size: 11px;
+  }
+  .theme-nue .btn {
+    border-radius: 999px;
+    min-height: 46px;
+    padding-inline: 26px;
+    font-size: 14px;
+  }
+  .theme-nue .btn-ghost {
+    border-color: color-mix(in srgb, currentColor 35%, transparent);
+  }
+  .theme-nue .field-box,
+  .theme-nue select.field {
+    border-radius: 14px;
+  }
+  .theme-nue .fig {
+    border-radius: 28px;
+  }
+  .theme-nue .check {
+    border-radius: 6px;
+  }
+  .theme-nue .demo-tag {
+    border-radius: 999px;
+  }
+}
+
+/* Bodoni accent words (Latin), as in the reference */
+.nue-latin {
+  font-family: "Bodoni Moda", serif;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  unicode-bidi: plaintext;
+}
+.nue-arch {
+  border-radius: 999px 999px 0 0;
+}
+.nue-arch-line {
+  position: absolute;
+  border: 1px solid color-mix(in srgb, var(--color-espresso) 55%, transparent);
+  border-bottom: 0;
+  border-radius: 999px 999px 0 0;
+  pointer-events: none;
+}
+.nue-dark {
+  background: var(--color-espresso);
+  color: var(--color-on-dark);
+}
+/* One orchestrated entrance only (the hero). Below the fold, content is simply there. */
+.js .theme-nue [data-reveal],
+.js .theme-nue [data-reveal="image"] > .fig-clip {
+  opacity: 1;
+  transform: none;
+  clip-path: none;
+  transition: none;
+}
+.js .theme-nue [data-reveal="image"] img {
+  transform: none;
+}

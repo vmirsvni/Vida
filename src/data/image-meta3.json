@@ -1,0 +1,42 @@
+{
+ "hero": {
+  "w": 960,
+  "h": 1200,
+  "blur": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAACwAQCdASoNABAAA4BaJYwCdACzHnwAAPuSmPZ2RVIf7wIBKHulS8g/SofXs1SMRxwCbENOBs7zj/yLA0GtX4K0TuaafFTo/LUy6kQAAAA="
+ },
+ "services": {
+  "w": 825,
+  "h": 1100,
+  "blur": "data:image/webp;base64,UklGRlAAAABXRUJQVlA4IEQAAADwAQCdASoMABAAA4BaJYwCdADdR4yv+GAA8AtyHCZqqMzAECKihwt5hbTJx84jYQP2S7tWlpIMsuEeHD0A6N3omIQAAA=="
+ },
+ "book": {
+  "w": 960,
+  "h": 1200,
+  "blur": "data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAAAwAgCdASoNABAAA4BaJYgCdAECmMBXEHHfwAD+4khbxwNf58F7DFOavoNxG1zbZbsz4Oro6PrNUCozlZKRkV4e99SVUfNKeLeSaVL0WHAAAA=="
+ },
+ "svc-microblading": {
+  "w": 1100,
+  "h": 1100,
+  "blur": "data:image/webp;base64,UklGRmgAAABXRUJQVlA4IFwAAAAwAgCdASoQABAAA4BaJQBOgBxNCg2Gw9HfAAD+9LRWeGglgOc1vpre2NPRxAaddXKtlY3nDH/azmYqeMZJhBM6nYSHKx1ZmWeHQ4cI+phFdwiBNOakksneIAAAAA=="
+ },
+ "svc-fibroze": {
+  "w": 1000,
+  "h": 1000,
+  "blur": "data:image/webp;base64,UklGRm4AAABXRUJQVlA4IGIAAAAQAgCdASoQABAAA4BaJYgCdADxLbM6BgyAAP7St8w7uISdiY5oR1XZeWfyekgPodN4Ex3iDepVPQuTNei6qNZNhFcMK2K5WYsG8uqWWsmJFhASXZH5FnDdHhqSUUVSHxkAAA=="
+ },
+ "svc-vibroze": {
+  "w": 1100,
+  "h": 1100,
+  "blur": "data:image/webp;base64,UklGRnAAAABXRUJQVlA4IGQAAAAwAgCdASoQABAAA4BaJZACdADw2Ru26PSiDAD+9DXrAslo15n1tKUF+z0crXnJQdTdyhe1mLQkWxn/JgHwGJaGCQzrpJN9kI3d74e7f2VyYCVyi6dreDytbdHj/tWPh2PuXQAA"
+ },
+ "svc-lip": {
+  "w": 1000,
+  "h": 1000,
+  "blur": "data:image/webp;base64,UklGRoAAAABXRUJQVlA4IHQAAADwAQCdASoQABAAA4BaJaACdACJsiAnzgAA/vM4KCN1XHgt9silAWQJND6o2+tIcdr69wU84k+4Q3oH38i/DVu2mXQi03J+4erj8+msimGaVkFwreOnYQ3SiiDPVgry/oElFO9H+lodejUI3uAgeseh1+IgAA=="
+ },
+ "svc-eyeliner": {
+  "w": 1100,
+  "h": 1100,
+  "blur": "data:image/webp;base64,UklGRmwAAABXRUJQVlA4IGAAAAAwAgCdASoQABAAA4BaJaACdAD2CReJwOD7AAD+8155jhkMloyzDqYEnAxhEXtksWDbc684t/g6hiUdRWeyh7l18xFjQSQfUIUGkgD87m1oUIOxZ3yuAJ+3ceCK6a6wAAA="
+ }
+}
